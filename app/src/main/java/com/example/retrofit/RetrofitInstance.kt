@@ -10,7 +10,8 @@ class RetrofitInstance {
     //companion object 객체 내부에 레트로핏 인스턴스를 만들면 클래스 이름을 사용하여 쉽게 사용가능
     companion object{
         //앞에서 한 baseurl과 endurl 설명 참조
-        val BASE_URL = "http://jsonplaceholder.typicode.com/albums"
+        //http를 사용하면 안되고 https를 사용해야함(안드로이드 9.0 파이에서는 https를 사용하도록 강제)
+        val BASE_URL = "https://jsonplaceholder.typicode.com/"
 
         fun getRetrofitInstance():Retrofit{
             return Retrofit.Builder()
