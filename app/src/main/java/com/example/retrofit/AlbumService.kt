@@ -2,6 +2,7 @@ package com.example.retrofit
 
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface AlbumService {
 
@@ -16,4 +17,7 @@ interface AlbumService {
     //retrofit은 항상 Refrofit response객체로 결과를 제공,
     // 때문에 반환값을 Response<Albums>
     suspend fun getAlbums() : Response<Albums>
+
+    @GET("/albums")
+    suspend fun getSortedAlbums(@Query("userId") userId : Int) : Response<Albums>
 }

@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
                 .create(AlbumService::class.java)
         val responseLiveData : LiveData<Response<Albums>> = liveData {
             //인터페이스 사용하여 응답 개체를 가져옴
-            val response = retService.getAlbums()
+            val response = retService.getSortedAlbums(3)
             //방출
             emit(response)
         }
