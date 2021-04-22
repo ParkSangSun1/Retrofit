@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:id="@+id/main_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".tutorial_1.MainActivity3">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ProgressBar
+                android:id="@+id/btn_progress"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_centerInParent="true"
+                android:indeterminateTint="#000"
+                android:visibility="invisible"
+                 />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_alignParentTop="true"
+                android:orientation="vertical"
+                android:padding="30dp">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <RadioGroup
+                    android:id="@+id/search_term_radio_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/photo_search_radio_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:checked="true"
+
+                        android:text="사진검색" />
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/user_search_radio_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:text="사용자검색"
+
+                        />
+                </RadioGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/search_term_text_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="사진검색"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="12"
+                    app:endIconMode="clear_text"
+                    app:helperText="검색어를 입력해 주세요"
+                    app:shapeAppearance="@style/ShapeAppearance.MaterialComponents.MediumComponent"
+                    app:startIconDrawable="@drawable/ic_baseline_insert_photo_24">
+
+                    <!--            app:boxStrokeColor="@color/colorPrimary"-->
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/search_term_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:inputType="text"
+                        android:maxLength="12"
+
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--        android:layout_width="wrap_content"-->
+                <!--        android:layout_height="wrap_content"-->
+                <!--        를 써야 marginTop등의 여러 설정들을 쓸수있다-->
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    >
+
+                    <!--    android:clickable="true" = 버튼 클릭했을때 이펙트-->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_search"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:clickable="true"
+                        android:paddingVertical="10dp"
+                        android:textAlignment="center"
+                        android:text="검색"
+                        android:visibility="invisible"
+                        android:textColor="#fff"
+                        android:textStyle="bold" />
+
+
+
+
+                </FrameLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+</layout>
