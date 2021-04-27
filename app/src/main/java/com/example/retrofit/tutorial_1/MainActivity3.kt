@@ -4,8 +4,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.text.Editable
-import android.text.TextWatcher
+
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -14,6 +13,7 @@ import androidx.databinding.DataBindingUtil
 import com.example.retrofit.R
 import com.example.retrofit.databinding.ActivityMain3Binding
 import com.example.retrofit.databinding.LayoutButtonSearchBinding
+import com.example.retrofit.tutorial_1.retrofit.RetrofitManager
 
 class MainActivity3 : AppCompatActivity() {
     lateinit var binding : ActivityMain3Binding
@@ -65,6 +65,20 @@ class MainActivity3 : AppCompatActivity() {
 
         binding.btnSearch.setOnClickListener {
             this.handleSearchButtonUi()
+
+            //검색 api 호출
+            RetrofitManager.instance.searchPhotos(searchTerm = binding.searchTermEditText.toString(), completion ={
+                responseState, responseBody ->
+                when(responseState){
+                    RESPONSE_STATE.OKAY->{
+                        Log.i(Constants.TAG,"api 호출성공 : $responseBody")
+                    }
+                    RESPONSE_STATE.FAIL->{
+                        Toast.makeText(this,"api호출 에러",Toast.LENGTH_SHORT).show()
+                        Log.i(Constants.TAG,"api 호출실패 : $responseBody")
+                    }
+                }
+            } )
         }
     }
 
